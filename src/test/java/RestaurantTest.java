@@ -71,6 +71,24 @@ class RestaurantTest {
     }
 
     @Test
+    public void none_selected_items_should_return_total_price_0_fail(){
+
+        List<String> itemList = new ArrayList<>();
+        int totalPrice = restaurant.getOrderTotal(itemList);
+        assertEquals(totalPrice,1);
+    }
+
+    @Test
+    public void selected_items_should_return_total_price_fail(){
+
+        List<String> itemList = new ArrayList<>();
+        itemList.add("Sweet corn soup");
+        itemList.add("Vegetable lasagne");
+        int totalPrice = restaurant.getOrderTotal(itemList);
+        assertEquals(totalPrice,389);
+    }
+
+    @Test
     public void selected_items_should_return_total_price(){
 
         List<String> itemList = new ArrayList<>();

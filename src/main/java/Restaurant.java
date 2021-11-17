@@ -68,4 +68,18 @@ public class Restaurant {
     public String getName() {
         return name;
     }
+
+    public int getOrderTotal(List<String> selectedItems){
+        int totalPrice = 0;
+        if(menu != null && !menu.isEmpty()) {
+            for (Item item : menu) {
+                if(selectedItems != null && !selectedItems.isEmpty()) {
+                    if (selectedItems.contains(item.getName())) {
+                        totalPrice = totalPrice + item.getPrice();
+                    }
+                }
+            }
+        }
+        return totalPrice;
+    }
 }
